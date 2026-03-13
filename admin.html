@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanIQ — Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Admin Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">🔐</div>
+      <div class="sidebar-logo-text">Loan<span>IQ</span> <span style="font-size:0.65rem;opacity:0.7;display:block;font-weight:400;color:rgba(255,255,255,0.5)">Admin Panel</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="admin.html" class="active"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="admin.html"><span class="nav-icon">📋</span> All Applications</a>
+      <a href="admin.html"><span class="nav-icon">📈</span> System Statistics</a>
+    </nav>
+    <div class="sidebar-logout">
+      <a href="#" id="logoutBtn"><span>🚪</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="page-header">
+      <h1>Admin Dashboard</h1>
+      <p>Real-time system statistics and loan application monitoring.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon blue">📋</div>
+        <div class="stat-info">
+          <div class="stat-value" id="adminTotal">0</div>
+          <div class="stat-label">Total Applications</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">✅</div>
+        <div class="stat-info">
+          <div class="stat-value" id="adminApproved">0</div>
+          <div class="stat-label">Loans Approved</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon red">❌</div>
+        <div class="stat-info">
+          <div class="stat-value" id="adminRejected">0</div>
+          <div class="stat-label">Loans Rejected</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon yellow">📊</div>
+        <div class="stat-info">
+          <div class="stat-value" id="adminRate">0%</div>
+          <div class="stat-label">Approval Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;">
+
+      <div class="card fade-in">
+        <div class="card-title">Score Distribution</div>
+        <div class="card-subtitle">Distribution of risk scores across all applications</div>
+        <div class="admin-bar-chart" id="scoreChart">
+          <div style="color:var(--grey-300);font-size:0.8rem;text-align:center;width:100%;padding-top:20px;">No data yet</div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-title">System Info</div>
+        <div class="card-subtitle">Environment overview</div>
+        <div class="profile-meta">
+          <div class="meta-row">
+            <span class="meta-key">Admin User</span>
+            <span class="meta-value">admin@loan.com</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Scoring Engine</span>
+            <span class="meta-value">Rule-Based v1.0</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Approval Threshold</span>
+            <span class="meta-value">60 / 100 pts</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Storage</span>
+            <span class="meta-value">localStorage (Browser)</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Status</span>
+            <span class="meta-value"><span class="badge badge-success">Operational</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Recent Applications Table -->
+    <div class="card fade-in">
+      <div class="card-title">Recent Loan Applications</div>
+      <div class="card-subtitle">Latest 20 applications across all users</div>
+
+      <div id="adminEmpty" class="empty-state hidden">
+        <div class="empty-icon">📭</div>
+        <p>No applications in the system yet.<br>Applications will appear here once users submit their loan forms.</p>
+      </div>
+
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Loan Amount</th>
+              <th>Credit Score</th>
+              <th>Risk Score</th>
+              <th>Result</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="adminTbody"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

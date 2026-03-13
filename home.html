@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanIQ — Apply for Loan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">💳</div>
+      <div class="sidebar-logo-text">Loan<span>IQ</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html"    class="active"><span class="nav-icon">🏠</span> Home</a>
+      <a href="home.html#apply"><span class="nav-icon">📋</span> Apply Loan</a>
+      <a href="history.html"><span class="nav-icon">📈</span> Prediction History</a>
+      <a href="profile.html"><span class="nav-icon">👤</span> User Profile</a>
+    </nav>
+    <div class="sidebar-logout">
+      <a href="#" id="logoutBtn"><span>🚪</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+      <h2>Hello, <span id="welcomeName">User</span> 👋</h2>
+      <p>Complete the loan application form below. Our system will evaluate your eligibility instantly using financial scoring.</p>
+      <button class="btn-apply" id="applyNowBtn">Apply for a Loan →</button>
+    </div>
+
+    <!-- Loan Application Form -->
+    <div id="loanFormSection">
+      <div class="page-header">
+        <h1>Loan Application</h1>
+        <p>Fill in all the details accurately for the best prediction result.</p>
+      </div>
+
+      <div class="card fade-in">
+        <form id="loanForm" novalidate>
+
+          <!-- Personal Details -->
+          <div class="loan-form-grid">
+            <div class="form-section-title">Personal Information</div>
+
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender">
+                <option value="">— Select —</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other / Prefer not to say</option>
+              </select>
+              <div class="error-msg" id="gender_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age (years)</label>
+              <input type="number" id="age" placeholder="e.g. 32" min="18" max="80">
+              <div class="error-msg" id="age_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="maritalStatus">Marital Status</label>
+              <select id="maritalStatus">
+                <option value="">— Select —</option>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="divorced">Divorced</option>
+                <option value="widowed">Widowed</option>
+              </select>
+              <div class="error-msg" id="maritalStatus_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="dependents">Number of Dependents</label>
+              <select id="dependents">
+                <option value="">— Select —</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+              </select>
+              <div class="error-msg" id="dependents_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="education">Education Level</label>
+              <select id="education">
+                <option value="">— Select —</option>
+                <option value="postgraduate">Post Graduate / PhD</option>
+                <option value="graduate">Graduate (Bachelor's)</option>
+                <option value="undergraduate">Undergraduate / Diploma</option>
+                <option value="highschool">High School</option>
+                <option value="below_highschool">Below High School</option>
+              </select>
+              <div class="error-msg" id="education_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="propertyArea">Property Area</label>
+              <select id="propertyArea">
+                <option value="">— Select —</option>
+                <option value="urban">Urban</option>
+                <option value="semiurban">Semi-Urban</option>
+                <option value="rural">Rural</option>
+              </select>
+              <div class="error-msg" id="propertyArea_err"></div>
+            </div>
+          </div>
+
+          <!-- Employment Details -->
+          <div class="loan-form-grid" style="margin-top:24px;">
+            <div class="form-section-title">Employment & Income</div>
+
+            <div class="form-group">
+              <label for="employmentType">Employment Type</label>
+              <select id="employmentType">
+                <option value="">— Select —</option>
+                <option value="salaried">Salaried</option>
+                <option value="self-employed">Self-Employed</option>
+                <option value="contract">Contract / Freelance</option>
+                <option value="unemployed">Unemployed</option>
+              </select>
+              <div class="error-msg" id="employmentType_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="employerType">Employer Type</label>
+              <select id="employerType">
+                <option value="">— Select —</option>
+                <option value="government">Government / PSU</option>
+                <option value="mnc">MNC / Large Corporate</option>
+                <option value="private_sme">Private SME</option>
+                <option value="startup">Startup</option>
+                <option value="own_business">Own Business</option>
+                <option value="na">Not Applicable</option>
+              </select>
+              <div class="error-msg" id="employerType_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="applicantIncome">Applicant Monthly Income (₹)</label>
+              <input type="number" id="applicantIncome" placeholder="e.g. 50000" min="0">
+              <div class="error-msg" id="applicantIncome_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="coApplicantIncome">Co-Applicant Monthly Income (₹)</label>
+              <input type="number" id="coApplicantIncome" placeholder="0 if none" min="0">
+              <div class="error-msg" id="coApplicantIncome_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="savings">Total Savings / Assets (₹)</label>
+              <input type="number" id="savings" placeholder="e.g. 200000" min="0">
+              <div class="error-msg" id="savings_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="existingLoans">No. of Existing Loans</label>
+              <select id="existingLoans">
+                <option value="">— Select —</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3+</option>
+              </select>
+              <div class="error-msg" id="existingLoans_err"></div>
+            </div>
+          </div>
+
+          <!-- Financial Profile -->
+          <div class="loan-form-grid" style="margin-top:24px;">
+            <div class="form-section-title">Financial Profile</div>
+
+            <div class="form-group">
+              <label for="creditScore">Credit Score (300–900)</label>
+              <input type="number" id="creditScore" placeholder="e.g. 720" min="300" max="900">
+              <div class="error-msg" id="creditScore_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="dtiRatio">DTI Ratio — Debt-to-Income % (0–100)</label>
+              <input type="number" id="dtiRatio" placeholder="e.g. 28" min="0" max="100" step="0.1">
+              <div class="error-msg" id="dtiRatio_err"></div>
+            </div>
+          </div>
+
+          <!-- Loan Details -->
+          <div class="loan-form-grid" style="margin-top:24px;">
+            <div class="form-section-title">Loan Details</div>
+
+            <div class="form-group">
+              <label for="loanAmount">Loan Amount Requested (₹)</label>
+              <input type="number" id="loanAmount" placeholder="e.g. 500000" min="1000">
+              <div class="error-msg" id="loanAmount_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="loanTerm">Loan Term</label>
+              <select id="loanTerm">
+                <option value="">— Select —</option>
+                <option value="12">12 months (1 year)</option>
+                <option value="24">24 months (2 years)</option>
+                <option value="36">36 months (3 years)</option>
+                <option value="48">48 months (4 years)</option>
+                <option value="60">60 months (5 years)</option>
+                <option value="84">84 months (7 years)</option>
+                <option value="120">120 months (10 years)</option>
+                <option value="180">180 months (15 years)</option>
+                <option value="240">240 months (20 years)</option>
+                <option value="360">360 months (30 years)</option>
+              </select>
+              <div class="error-msg" id="loanTerm_err"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="loanPurpose">Loan Purpose</label>
+              <select id="loanPurpose">
+                <option value="">— Select —</option>
+                <option value="Home Purchase">Home Purchase</option>
+                <option value="Home Renovation">Home Renovation</option>
+                <option value="Education">Education</option>
+                <option value="Business">Business Expansion</option>
+                <option value="Vehicle">Vehicle Purchase</option>
+                <option value="Medical">Medical Emergency</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Debt Consolidation">Debt Consolidation</option>
+                <option value="Personal">Personal Use</option>
+                <option value="Other">Other</option>
+              </select>
+              <div class="error-msg" id="loanPurpose_err"></div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-secondary">Clear Form</button>
+              <button type="submit" class="btn btn-primary" style="width:auto;">
+                ⚡ Evaluate Loan Application
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

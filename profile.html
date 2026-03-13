@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanIQ — My Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">💳</div>
+      <div class="sidebar-logo-text">Loan<span>IQ</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html"><span class="nav-icon">🏠</span> Home</a>
+      <a href="home.html"><span class="nav-icon">📋</span> Apply Loan</a>
+      <a href="history.html"><span class="nav-icon">📈</span> Prediction History</a>
+      <a href="profile.html" class="active"><span class="nav-icon">👤</span> User Profile</a>
+    </nav>
+    <div class="sidebar-logout">
+      <a href="#" id="logoutBtn"><span>🚪</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="page-header">
+      <h1>User Profile</h1>
+      <p>Your account information and activity summary.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:300px 1fr; gap:24px; align-items:start;">
+
+      <!-- Profile Card -->
+      <div class="card fade-in">
+        <div class="profile-avatar" id="profileAvatar">U</div>
+        <div class="profile-name" id="profileName">—</div>
+        <div class="profile-email" id="profileEmail">—</div>
+
+        <a href="history.html" class="btn btn-primary" style="width:100%;text-align:center;display:block;padding:11px 0;font-size:0.88rem;">
+          View My Predictions
+        </a>
+      </div>
+
+      <!-- Details Card -->
+      <div class="card fade-in">
+        <div class="card-title">Account Details</div>
+        <div class="card-subtitle">Your registered information and loan activity.</div>
+
+        <div class="profile-meta">
+          <div class="meta-row">
+            <span class="meta-key">Full Name</span>
+            <span class="meta-value" id="metaUsername">—</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Email Address</span>
+            <span class="meta-value" id="metaEmail">—</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Total Applications</span>
+            <span class="meta-value" id="metaTotal">0</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Loans Approved</span>
+            <span class="meta-value" style="color:var(--success);" id="metaApproved">0</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Loans Rejected</span>
+            <span class="meta-value" style="color:var(--danger);" id="metaRejected">0</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Account Status</span>
+            <span class="meta-value" id="metaMember">
+              <span class="badge badge-success">Active</span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

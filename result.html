@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanIQ — Prediction Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">💳</div>
+      <div class="sidebar-logo-text">Loan<span>IQ</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html"><span class="nav-icon">🏠</span> Home</a>
+      <a href="home.html"><span class="nav-icon">📋</span> Apply Loan</a>
+      <a href="history.html"><span class="nav-icon">📈</span> Prediction History</a>
+      <a href="profile.html"><span class="nav-icon">👤</span> User Profile</a>
+    </nav>
+    <div class="sidebar-logout">
+      <a href="#" id="logoutBtn"><span>🚪</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="page-header">
+      <h1>Prediction Result</h1>
+      <p>Your loan application has been evaluated by our financial scoring system.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
+
+      <!-- Result Hero Card -->
+      <div class="card fade-in" style="grid-column:1/-1; max-width:600px; margin:0 auto; width:100%;">
+        <div class="result-hero">
+
+          <!-- Icon -->
+          <div class="result-icon approved" id="resultIcon">✓</div>
+
+          <!-- Status -->
+          <div class="result-status approved" id="resultStatus">Loan Approved</div>
+          <div class="result-amount" id="resultLoanAmt"></div>
+
+          <!-- Score Bar -->
+          <div class="result-score-bar">
+            <div class="score-label">
+              <span>Risk Score</span>
+              <span id="scorePercent">0%</span>
+            </div>
+            <div class="score-bar-track">
+              <div class="score-bar-fill approved" id="scoreBarFill" style="width:0%"></div>
+            </div>
+            <div class="score-label" style="margin-top:6px;font-size:0.75rem;">
+              <span style="color:var(--danger)">Rejected (&lt;60%)</span>
+              <span style="color:var(--success)">Approved (≥60%)</span>
+            </div>
+          </div>
+
+          <!-- Reasons -->
+          <div class="result-reasons">
+            <h3>Evaluation Breakdown</h3>
+            <div id="reasonsList"></div>
+          </div>
+
+        </div>
+
+        <!-- Actions -->
+        <div style="display:flex;gap:12px;justify-content:center;padding-top:20px;border-top:1px solid var(--grey-100);">
+          <button class="btn btn-secondary" id="applyAgainBtn">Apply Again</button>
+          <a href="history.html" class="btn btn-primary" style="width:auto;">View History</a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

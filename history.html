@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanIQ — Prediction History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">💳</div>
+      <div class="sidebar-logo-text">Loan<span>IQ</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html"><span class="nav-icon">🏠</span> Home</a>
+      <a href="home.html"><span class="nav-icon">📋</span> Apply Loan</a>
+      <a href="history.html" class="active"><span class="nav-icon">📈</span> Prediction History</a>
+      <a href="profile.html"><span class="nav-icon">👤</span> User Profile</a>
+    </nav>
+    <div class="sidebar-logout">
+      <a href="#" id="logoutBtn"><span>🚪</span> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="page-header">
+      <h1>Prediction History</h1>
+      <p>All your previous loan evaluation results.</p>
+    </div>
+
+    <div class="card fade-in">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <div>
+          <div class="card-title" style="margin-bottom:0">Application Records</div>
+        </div>
+        <a href="home.html" class="btn btn-primary" style="width:auto;padding:10px 20px;font-size:0.85rem;">
+          + New Application
+        </a>
+      </div>
+
+      <!-- Empty state -->
+      <div id="historyEmpty" class="empty-state hidden">
+        <div class="empty-icon">📋</div>
+        <p>No loan applications yet.<br>Submit your first application to see results here.</p>
+      </div>
+
+      <!-- Table -->
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Loan Amount</th>
+              <th>Credit Score</th>
+              <th>Purpose</th>
+              <th>Risk Score</th>
+              <th>Result</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="historyTbody"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
